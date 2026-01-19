@@ -11,6 +11,9 @@ import { Skills } from "./components/Skills";
 import { Timeline } from "./components/Timeline";
 import { Contact } from "./components/Contact"; // 👈 'lucide-react' se hata kar yahan se import karein
 import { Footer } from "./components/Footer";
+import { CosmicBot } from "./components/CosmicBot";
+
+
 
 export default function App() {
   const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "light");
@@ -67,6 +70,7 @@ export default function App() {
         {/* Ab yahan aapka pura Contact Section dikhega */}
         <Contact />
         <Footer />
+        <CosmicBot/>
       </main>
 
       {/* Easter Egg Comet Effect */}
