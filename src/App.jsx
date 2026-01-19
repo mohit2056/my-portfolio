@@ -35,7 +35,7 @@ export default function App() {
 
   return (
     <div className={`relative min-h-screen w-full overflow-x-hidden transition-colors duration-700 
-      ${theme === "dark" ? "cosmic-bg text-white" : "bg-white text-black"}`}>
+      ${theme === "dark" ? "cosmic-bg text-white" : "bg-white 'bg-[#f8fafc] text-slate-900"}`}>
       
       {/* Scroll Progress Bar */}
       <motion.div className="fixed top-0 left-0 right-0 h-1.5 bg-blue-600 z-50" style={{ scaleX }} />
