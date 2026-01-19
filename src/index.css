@@ -1,3 +1,66 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/* 1. Dark mode variant enable karein */
+@variant dark (&:where(.dark, .dark *));
+
+/* 2. Theme animations define karein */
+@theme {
+  --animate-meteor: meteor 5s linear infinite;
+  
+  @keyframes meteor {
+    0% { transform: rotate(215deg) translateX(0); opacity: 1; }
+    70% { opacity: 1; }
+    100% { transform: rotate(215deg) translateX(-500px); opacity: 0; }
+  }
+}
+
+@theme {
+  --animate-twinkle: twinkle 3s ease-in-out infinite;
+  
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.2); }
+  }
+}
+
+
+/* index.css mein ise replace/check karein */
+.cosmic-bg {
+  background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%) !important;
+}
+
+
+
+/* Custom Cursor Styling */
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: transform 0.1s ease-out;
+  box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.2);
+}
+
+/* Stars background texture */
+.stars-container {
+  background-image: radial-gradient(white 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+
+/* 4. Global colors */
+:root {
+  background-color: white;
+  color: black;
+}
+
+/* Dark mode class properties */
+.dark {
+  /* Agar cosmic-bg use kar rahe ho to ise comment kar sakte ho */
+  background-color: #0f172a; 
+  color: white;
+}
