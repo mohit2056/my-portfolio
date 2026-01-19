@@ -12,6 +12,7 @@ import { Timeline } from "./components/Timeline";
 import { Contact } from "./components/Contact"; // 👈 'lucide-react' se hata kar yahan se import karein
 import { Footer } from "./components/Footer";
 import { CosmicBot } from "./components/CosmicBot";
+import { Reviews } from "./components/Reviews";
 
 
 
@@ -69,6 +70,7 @@ export default function App() {
         <Skills />
         {/* Ab yahan aapka pura Contact Section dikhega */}
         <Contact />
+        <Reviews/>
         <Footer />
         <CosmicBot/>
       </main>
