@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { User, Award, X, Code, Rocket } from "lucide-react";
 import sqlCert from "../assets/sql_cert.jpg"; 
 
+
 const certificates = [
   { 
     title: "Microsoft SQL Certification Training", 
