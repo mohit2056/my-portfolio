@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { User, Award, X, Code, Rocket } from "lucide-react";
-import sqlCert from "../assets/sql_cert.jpg"; 
+import sqlCert from "../assets/mohit_cert.jpg"; 
 
 
 const certificates = [
