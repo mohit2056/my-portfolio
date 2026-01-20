@@ -13,6 +13,7 @@ import { Contact } from "./components/Contact"; // 👈 'lucide-react' se hata k
 import { Footer } from "./components/Footer";
 import { CosmicBot } from "./components/CosmicBot";
 import { Reviews } from "./components/Reviews";
+import { AIChat } from "./components/AIChat";
 
 
 
@@ -73,6 +74,7 @@ export default function App() {
         <Reviews/>
         <Footer />
         <CosmicBot/>
+        <AIChat/>
       </main>
 
       {/* Easter Egg Comet Effect */}
