@@ -64,3 +64,8 @@
   background-color: #0f172a; 
   color: white;
 }
+
+html {
+  scroll-behavior: auto; /* Lenis ke saath important */
+}
+
