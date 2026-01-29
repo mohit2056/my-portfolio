@@ -11,6 +11,11 @@ const milestones = [
     title: "Future Goals", 
     desc: "Exploring Web3 and AI integrations and Web Development." 
   },
+  {
+    year: "2026",
+    title: "Generative AI In Full Stack Development",
+    desc: "Exploring Web3 and AI integrations and Web Development.",
+  },
 ];
 
 export const Timeline = () => {

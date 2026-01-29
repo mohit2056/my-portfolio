@@ -16,7 +16,6 @@ import { Reviews } from "./components/Reviews";
 import { AIChat } from "./components/AIChat";
 
 
-
 export default function App() {
   const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "light");
   const [showComet, setShowComet] = useState(false);
@@ -69,7 +68,7 @@ export default function App() {
         <Projects />
         <Timeline/>
         <Skills />
-        {/* Ab yahan aapka pura Contact Section dikhega */}
+        {/*  Contact Section  */}
         <Contact />
         <Reviews/>
         <Footer />
