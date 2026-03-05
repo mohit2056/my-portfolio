@@ -15,13 +15,12 @@ import { CosmicBot } from "./components/CosmicBot";
 import { Reviews } from "./components/Reviews";
 import { AIChat } from "./components/AIChat";
 
-// Naye Imports: Context aur Toggle Button
-import { ThemeProvider, useTheme } from "./context/ThemeContext";
-import ThemeToggle from "./components/ThemeToggle"; // Agar tune pichla wala save kiya hai
 
-// Maine tere main content ko ek naye component mein daal diya taaki 'useTheme' use kar sakein
+import { ThemeProvider, useTheme } from "./context/ThemeContext";
+import ThemeToggle from "./components/ThemeToggle"; 
+
 function AppContent() {
-  const { theme } = useTheme(); // Context se theme la rahe hain
+  const { theme } = useTheme(); 
   const [showComet, setShowComet] = useState(false);
   
   const { scrollYProgress } = useScroll();
@@ -48,7 +47,7 @@ function AppContent() {
       <nav className="fixed top-0 w-full z-40 flex justify-between items-center p-6 backdrop-blur-md bg-white/5 border-b border-white/10">
         <h1 className="text-2xl font-black tracking-tighter">Cosmic.Dev</h1>
         
-        {/* Naya ThemeToggle component yahan use kiya hai */}
+        
         <ThemeToggle />
       </nav>
 
@@ -80,7 +79,7 @@ function AppContent() {
   );
 }
 
-// Ye tera main App component hai jisme Provider laga hai
+
 export default function App() {
   return (
     <ThemeProvider>
