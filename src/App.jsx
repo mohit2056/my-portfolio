@@ -1,41 +1,35 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 import "./index.css";
 
-// Components Imports - Yahan dhyan dein
+// Components Imports
 import { Meteors } from "./components/Meteors";
 import { Hero } from "./components/Hero";
 import { About } from "./components/About";
 import { Projects } from "./components/Projects";
 import { Skills } from "./components/Skills";
 import { Timeline } from "./components/Timeline";
-import { Contact } from "./components/Contact"; // 👈 'lucide-react' se hata kar yahan se import karein
+import { Contact } from "./components/Contact"; 
 import { Footer } from "./components/Footer";
 import { CosmicBot } from "./components/CosmicBot";
 import { Reviews } from "./components/Reviews";
 import { AIChat } from "./components/AIChat";
 
+// Naye Imports: Context aur Toggle Button
+import { ThemeProvider, useTheme } from "./context/ThemeContext";
+import ThemeToggle from "./components/ThemeToggle"; // Agar tune pichla wala save kiya hai
 
-export default function App() {
-  const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "light");
+// Maine tere main content ko ek naye component mein daal diya taaki 'useTheme' use kar sakein
+function AppContent() {
+  const { theme } = useTheme(); // Context se theme la rahe hain
   const [showComet, setShowComet] = useState(false);
   
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
 
-  useEffect(() => {
-    const root = window.document.documentElement;
-    if (theme === "dark") {
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
-    }
-    localStorage.setItem("theme", theme);
-  }, [theme]);
-
   return (
     <div className={`relative min-h-screen w-full overflow-x-hidden transition-colors duration-700 
-      ${theme === "dark" ? "cosmic-bg text-white" : "bg-white 'bg-[#f8fafc] text-slate-900"}`}>
+      ${theme === "dark" ? "cosmic-bg text-white" : "bg-white text-slate-900"}`}>
       
       {/* Scroll Progress Bar */}
       <motion.div className="fixed top-0 left-0 right-0 h-1.5 bg-blue-600 z-50" style={{ scaleX }} />
@@ -53,12 +47,9 @@ export default function App() {
       {/* Navigation Bar */}
       <nav className="fixed top-0 w-full z-40 flex justify-between items-center p-6 backdrop-blur-md bg-white/5 border-b border-white/10">
         <h1 className="text-2xl font-black tracking-tighter">Cosmic.Dev</h1>
-        <button 
-          onClick={() => setTheme(theme === "light" ? "dark" : "light")} 
-          className="px-5 py-2 rounded-full bg-blue-600 text-white font-bold shadow-lg hover:scale-105 active:scale-95 transition-all cursor-pointer"
-        >
-          {theme === "light" ? "🌙 Dark" : "☀️ Light"}
-        </button>
+        
+        {/* Naya ThemeToggle component yahan use kiya hai */}
+        <ThemeToggle />
       </nav>
 
       {/* Main Content */}
@@ -68,7 +59,6 @@ export default function App() {
         <Projects />
         <Timeline/>
         <Skills />
-        {/*  Contact Section  */}
         <Contact />
         <Reviews/>
         <Footer />
@@ -87,5 +77,14 @@ export default function App() {
         />
       )}
     </div>
+  );
+}
+
+// Ye tera main App component hai jisme Provider laga hai
+export default function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
   );
 }
